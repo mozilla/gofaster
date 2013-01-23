@@ -1,0 +1,9 @@
+activate*
+add-job
+clear-jobs
+easy_install*
+pip*
+process-next-job
+python*
+show-pending-jobs
+templeton*

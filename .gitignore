@@ -24,3 +24,5 @@ src/dashboard/server/settings.cfg
 src/isthisbuildfaster/
 src/mozautoeslib/
 src/mozautolog/
+src/templeton/
+.Python
