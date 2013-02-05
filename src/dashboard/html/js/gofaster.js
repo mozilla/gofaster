@@ -66,7 +66,7 @@ function show_graph(data) {
         var x = item.datapoint[0].toFixed(2),
             y = item.datapoint[1].toFixed(2);
 
-        show_graph_tooltip(item.pageX, item.pageY, "Build time (hours): " + y);
+        show_graph_tooltip(item.pageX, item.pageY, "Time (hours): " + y);
     } else {
         $("#graphtooltip").remove();
     }

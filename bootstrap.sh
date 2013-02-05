@@ -48,7 +48,7 @@ pyes \
 statlib \
 "
 
-MOZAUTOLOG_REPO=http://hg.mozilla.org/users/jgriffin_mozilla.com/mozautolog/
+MOZAUTOLOG_REPO=http://hg.mozilla.org/automation/mozautolog/
 MOZAUTOESLIB=http://hg.mozilla.org/automation/mozautoeslib/
 ISTHISBUILDFASTER=http://hg.mozilla.org/users/jgriffin_mozilla.com/isthisbuildfaster/
 

@@ -76,9 +76,12 @@ for row in reader:
     event = {}
     event["uid"] = row["uid"]
     event["revision"] = row["revision"]
-    event["submitted_at"] = mktime(dateutil.parser.parse(unicode(row["submitted_at"])).timetuple())
-    event["start_time"] = mktime(dateutil.parser.parse(unicode(row["start_time"])).timetuple())
-    event["finish_time"] = mktime(dateutil.parser.parse(unicode(row["finish_time"])).timetuple())
+    event["submitted_at"] = mktime(dateutil.parser.parse(
+        unicode(row["submitted_at"])).timetuple())
+    event["start_time"] = mktime(dateutil.parser.parse(
+        unicode(row["start_time"])).timetuple())
+    event["finish_time"] = mktime(dateutil.parser.parse(
+        unicode(row["finish_time"])).timetuple())
 
     if row["jobtype"] == "talos":
         event['jobtype'] = "talos"
@@ -116,7 +119,10 @@ for row in reader:
 
 summaries = []
 for uid in set(map(lambda e: e["uid"], events)):
-    events_for_build = sorted(filter(lambda e: e['uid'] == uid, events), key=lambda e: e['finish_time'])
+    events_for_build = sorted(
+        filter(lambda e: e['uid'] == uid, events),
+        key=lambda e: e['finish_time'],
+        )
 
     # Reset the submitted_at time for tests such that it is never earlier
     # than the earliest submitted_at time for related builds; see bug 694041.
@@ -125,8 +131,10 @@ for uid in set(map(lambda e: e["uid"], events)):
         if len(builds) == 1:
             earliest_submited = builds[0]['submitted_at']
         else:
-            earliest_submitted = reduce(lambda x,y: min(x['submitted_at'] if isinstance(x, dict) else x,
-                                                        y['submitted_at'] if isinstance(y, dict) else y), builds)
+            earliest_submitted = reduce(lambda x,y: min(
+                x['submitted_at'] if isinstance(x, dict) else x,
+                y['submitted_at'] if isinstance(y, dict) else y,
+                ), builds)
         for test in filter(lambda e: e.get('suitename'), events_for_build):
             if test['submitted_at'] < earliest_submitted:
                 test['submitted_at'] = earliest_submitted
