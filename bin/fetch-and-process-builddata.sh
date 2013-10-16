@@ -4,6 +4,7 @@ set -e
 
 export PATH=$(dirname $0):$PATH
 
+BUILDDATA_LOCATION=http://builddata.pub.build.mozilla.org/reports/buildfaster.csv.gz
 SCRIPT_DIR=$(dirname $0)/../src/dashboard/server/scripts/
 DATA_DIR=$(dirname $0)/../src/dashboard/server/data/
 CSV_OUTPUT=$DATA_DIR/buildfaster.csv
@@ -18,6 +19,6 @@ while getopts l OPTION; do
 done
 
 if [ $LOCAL == 0 ]; then
-    wget http://build.mozilla.org/builds/buildfaster.csv.gz -O - | gunzip > $CSV_OUTPUT
+    wget $BUILDDATA_LOCATION -O - | gunzip > $CSV_OUTPUT
 fi
 python $SCRIPT_DIR/parsecsv.py $CSV_OUTPUT $PKL_OUTPUT
