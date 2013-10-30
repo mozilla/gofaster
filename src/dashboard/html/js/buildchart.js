@@ -12,7 +12,7 @@ $(function() {
             modal: true
           });
 
-          $.getJSON('api/builds/' + buildid, function(data) {
+          $.getJSON('api/builds/' + buildid + '/', function(data) {
             var events = data['events'];
             var summary = data['summary'];
 
@@ -84,7 +84,7 @@ $(function() {
 
         '/buildjobs/([0-9]+)': {
           on: function(buildid, jobid) {
-            $.getJSON('api/buildjobs/'+jobid, function(data) {
+            $.getJSON('api/buildjobs/' + jobid + '/', function(data) {
               if (!data) {
                 $('#build-dialog').dialog('option', 'title', 'No data');
                 $('#piechart').hide();
