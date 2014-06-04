@@ -18,7 +18,7 @@ bin/unit2-2.7
 bin/unit2.py
 include/
 lib/
-lib64/
+lib64
 src/dashboard/server/data/buildfaster-queue.pkl
 src/dashboard/server/data/buildfaster.csv
 src/dashboard/server/data/buildfaster.pkl
